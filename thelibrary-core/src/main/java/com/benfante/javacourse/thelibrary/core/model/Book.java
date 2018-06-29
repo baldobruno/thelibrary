@@ -4,18 +4,27 @@ public class Book {
 	private long id;
 	private String title;
 	private float price;
-	private String author;
+	private Author author;
+	private Publisher publisher;
 
-	public Book(long id, String title, String author) {
+	public Book(long id, String title, Author author) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
 	}
 
-	public Book(long id, String title, String author, float price) {
+	public Book(long id, String title, Author author, float price) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
+		this.price = price;
+	}
+
+	public Book(long id, String title, Author author, Publisher publisher, float price) {
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.publisher = publisher;
 		this.price = price;
 	}
 
@@ -43,17 +52,26 @@ public class Book {
 		this.price = price;
 	}
 
-	public String getAuthor() {
+	public Author getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(Author author) {
 		this.author = author;
+	}
+
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
 	}
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", price=" + price + ", author=" + author + "]";
+		return "Book [id=" + id + ", title=" + title + ", price=" + price + ", author=" + author + ", publisher="
+				+ publisher + "]";
 	}
 
 }
