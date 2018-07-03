@@ -2,12 +2,16 @@ package com.benfante.javacourse.thelibrary.core.model;
 
 import java.util.Arrays;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Book {
 	private long id;
 	private String title;
 	private float price;
 	private Author[] authors;
 	private Publisher publisher;
+	private static final Logger log = LoggerFactory.getLogger(Book.class);
 
 	public Book(long id, String title, Author[] authors) {
 		this.id = id;
@@ -71,6 +75,8 @@ public class Book {
 	}
 
 	public void addAuthor(Author author) {
+		log.debug("Adding author with id={}, firstName={}, lastName={}",
+				author.getId(), author.getFirstName(), author.getLastName());
 		authors = expandArrayWithCopyOf();
 		// authors = expandArrayWithFor();
 		// authors = expandArrayWithArrayCopy();
